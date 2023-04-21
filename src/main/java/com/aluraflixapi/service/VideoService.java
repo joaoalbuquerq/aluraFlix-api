@@ -20,20 +20,20 @@ public class VideoService {
 	private VideoRepository repository;
 	
 	public ResponseEntity cadastrar(DadosCadastroVideo dados, UriComponentsBuilder uriBuilder) {
-		
 		var video = new Video(dados);
 		repository.save(video);
-
 		var uri = uriBuilder.path("/videos/{id}").buildAndExpand(video.getId());
-
 		return ResponseEntity.created(uri.toUri()).body(new DadosDetalhamentoVideo(video));
 	}
 
 	public ResponseEntity<Page<DadosListagemVideo>> listar(Pageable paginacao){
-
 		var listaVideos = repository.findAll(paginacao).map(DadosListagemVideo::new);
-
 		return ResponseEntity.ok(listaVideos);
+	}
+
+	public ResponseEntity detalhar(Long id){
+		var video = repository.getReferenceById(id);
+		return ResponseEntity.ok(new DadosDetalhamentoVideo(video));
 	}
 
 }

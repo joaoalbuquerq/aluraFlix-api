@@ -1,5 +1,7 @@
 package com.aluraflixapi.infra.exception;
 
+import jakarta.persistence.EntityNotFoundException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -14,4 +16,8 @@ public class TratadorDeErros {
         return ResponseEntity.badRequest().body(erros.stream().map(DadosErroValidacao::new).toList());
     }
 
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity tratarErro404(){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Recurso não encontrado");
+    }
 }

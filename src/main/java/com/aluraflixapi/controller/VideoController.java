@@ -1,5 +1,6 @@
 package com.aluraflixapi.controller;
 
+import com.aluraflixapi.dto.DadosDetalhamentoVideo;
 import com.aluraflixapi.dto.DadosListagemVideo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -31,6 +32,11 @@ public class VideoController {
 	@GetMapping
 	public ResponseEntity<Page<DadosListagemVideo>> listar(@PageableDefault(size = 20, sort = {"titulo"}) Pageable paginacao){
 		return service.listar(paginacao);
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity detalhar(@PathVariable Long id){
+		return service.detalhar(id);
 	}
 
 }
