@@ -3,9 +3,13 @@ package com.aluraflixapi.domain;
 import com.aluraflixapi.dto.DadosCadastroVideo;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "videos")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Video {
 	
 	@Id
