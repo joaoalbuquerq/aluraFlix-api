@@ -36,4 +36,11 @@ public class VideoService {
 		return ResponseEntity.ok(new DadosDetalhamentoVideo(video));
 	}
 
+	public ResponseEntity deletar(Long id){
+		var video = repository.getReferenceById(id);
+		repository.delete(video);
+
+		return ResponseEntity.noContent().build();
+	}
+
 }

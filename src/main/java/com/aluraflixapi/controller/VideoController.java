@@ -39,4 +39,9 @@ public class VideoController {
 		return service.detalhar(id);
 	}
 
+	@DeleteMapping("/{id}")
+	public ResponseEntity excluir(@PathVariable Long id){
+		return service.deletar(id);
+	}
+
 }
