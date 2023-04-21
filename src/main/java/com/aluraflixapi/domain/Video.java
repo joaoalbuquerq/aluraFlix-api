@@ -1,5 +1,6 @@
 package com.aluraflixapi.domain;
 
+import com.aluraflixapi.dto.DadosAtualizacaoVideo;
 import com.aluraflixapi.dto.DadosCadastroVideo;
 
 import jakarta.persistence.*;
@@ -26,6 +27,18 @@ public class Video {
 		this.titulo = dados.titulo();
 		this.descricao = dados.descricao();
 		this.url = dados.url();
+	}
+
+	public void atualizarDados(DadosAtualizacaoVideo dados){
+		if(dados.descricao() != null && !dados.descricao().equals("")){
+			this.descricao = dados.descricao();
+		}
+		if(dados.titulo() != null && !dados.titulo().equals("")){
+			this.titulo = dados.titulo();
+		}
+		if(dados.url() != null && !dados.url().equals("")){
+			this.titulo = dados.url();
+		}
 	}
 	
 	public Long getId() {

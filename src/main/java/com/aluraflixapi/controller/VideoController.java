@@ -1,5 +1,6 @@
 package com.aluraflixapi.controller;
 
+import com.aluraflixapi.dto.DadosAtualizacaoVideo;
 import com.aluraflixapi.dto.DadosDetalhamentoVideo;
 import com.aluraflixapi.dto.DadosListagemVideo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,11 @@ public class VideoController {
 	@DeleteMapping("/{id}")
 	public ResponseEntity excluir(@PathVariable Long id){
 		return service.deletar(id);
+	}
+
+	@PutMapping()
+	public ResponseEntity atualizar(@RequestBody DadosAtualizacaoVideo dadosRequisicao){
+		return service.atualizar(dadosRequisicao);
 	}
 
 }

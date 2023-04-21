@@ -1,5 +1,6 @@
 package com.aluraflixapi.service;
 
+import com.aluraflixapi.dto.DadosAtualizacaoVideo;
 import com.aluraflixapi.dto.DadosDetalhamentoVideo;
 import com.aluraflixapi.dto.DadosListagemVideo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,12 @@ public class VideoService {
 		repository.delete(video);
 
 		return ResponseEntity.noContent().build();
+	}
+
+	public ResponseEntity atualizar(DadosAtualizacaoVideo dados){
+		var video = repository.getReferenceById(dados.id());
+		video.atualizarDados(dados);
+		return ResponseEntity.ok(new DadosDetalhamentoVideo(video));
 	}
 
 }
