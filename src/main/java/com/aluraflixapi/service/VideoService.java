@@ -20,11 +20,10 @@ public class VideoService {
 	@Autowired
 	private VideoRepository repository;
 	
-	public ResponseEntity cadastrar(DadosCadastroVideo dados, UriComponentsBuilder uriBuilder) {
+	public DadosDetalhamentoVideo cadastrar(DadosCadastroVideo dados) {
 		var video = new Video(dados);
 		repository.save(video);
-		var uri = uriBuilder.path("/videos/{id}").buildAndExpand(video.getId());
-		return ResponseEntity.created(uri.toUri()).body(new DadosDetalhamentoVideo(video));
+		return new DadosDetalhamentoVideo(video);
 	}
 
 	public ResponseEntity<Page<DadosListagemVideo>> listar(Pageable paginacao){

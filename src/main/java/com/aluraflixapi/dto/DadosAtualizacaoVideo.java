@@ -9,4 +9,5 @@ public record DadosAtualizacaoVideo(
         String descricao,
         String url
 ) {
+
 }

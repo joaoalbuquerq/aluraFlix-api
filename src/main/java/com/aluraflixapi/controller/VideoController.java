@@ -26,8 +26,10 @@ public class VideoController {
 	
 	@PostMapping
 	@Transactional
-	public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroVideo dadosRequisicao, UriComponentsBuilder uri) {
-		return service.cadastrar(dadosRequisicao, uri);
+	public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroVideo dadosRequisicao) {
+		var dto = service.cadastrar(dadosRequisicao);
+		return ResponseEntity.ok(dto);
+
 	}
 
 	@GetMapping
