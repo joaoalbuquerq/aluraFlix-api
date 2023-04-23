@@ -1,8 +1,8 @@
 package com.aluraflixapi.service;
 
-import com.aluraflixapi.dto.DadosAtualizacaoVideo;
-import com.aluraflixapi.dto.DadosDetalhamentoVideo;
-import com.aluraflixapi.dto.DadosListagemVideo;
+import com.aluraflixapi.dto.video.DadosAtualizacaoVideo;
+import com.aluraflixapi.dto.video.DadosDetalhamentoVideo;
+import com.aluraflixapi.dto.video.DadosListagemVideo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,9 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.aluraflixapi.domain.Video;
-import com.aluraflixapi.dto.DadosCadastroVideo;
+import com.aluraflixapi.dto.video.DadosCadastroVideo;
 import com.aluraflixapi.repository.VideoRepository;
-import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
 public class VideoService {

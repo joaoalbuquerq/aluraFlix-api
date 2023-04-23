@@ -1,10 +1,8 @@
 package com.aluraflixapi.controller;
 
-import com.aluraflixapi.domain.Video;
-import com.aluraflixapi.dto.DadosAtualizacaoVideo;
-import com.aluraflixapi.dto.DadosCadastroVideo;
-import com.aluraflixapi.dto.DadosDetalhamentoVideo;
-import com.aluraflixapi.dto.DadosListagemVideo;
+import com.aluraflixapi.dto.video.DadosAtualizacaoVideo;
+import com.aluraflixapi.dto.video.DadosCadastroVideo;
+import com.aluraflixapi.dto.video.DadosDetalhamentoVideo;
 import com.aluraflixapi.service.VideoService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,13 +14,8 @@ import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.util.LinkedMultiValueMap;
-
-import java.net.URI;
-import java.util.logging.Logger;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;

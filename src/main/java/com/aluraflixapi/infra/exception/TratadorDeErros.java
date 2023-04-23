@@ -7,6 +7,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.util.NoSuchElementException;
+
 @RestControllerAdvice
 public class TratadorDeErros {
 
@@ -18,6 +20,11 @@ public class TratadorDeErros {
 
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity tratarErro404(){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Recurso não encontrado");
+    }
+
+    @ExceptionHandler(NoSuchElementException.class)
+    public ResponseEntity tratarErro500(){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Recurso não encontrado");
     }
 }

@@ -1,4 +1,4 @@
-package com.aluraflixapi.dto;
+package com.aluraflixapi.dto.video;
 
 import com.aluraflixapi.domain.Video;
 

@@ -1,7 +1,7 @@
 package com.aluraflixapi.domain;
 
-import com.aluraflixapi.dto.DadosAtualizacaoVideo;
-import com.aluraflixapi.dto.DadosCadastroVideo;
+import com.aluraflixapi.dto.video.DadosAtualizacaoVideo;
+import com.aluraflixapi.dto.video.DadosCadastroVideo;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
