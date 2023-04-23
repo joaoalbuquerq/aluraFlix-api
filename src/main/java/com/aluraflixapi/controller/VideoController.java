@@ -43,11 +43,13 @@ public class VideoController {
 	}
 
 	@DeleteMapping("/{id}")
+	@Transactional
 	public ResponseEntity excluir(@PathVariable Long id){
 		return service.deletar(id);
 	}
 
 	@PutMapping()
+	@Transactional
 	public ResponseEntity atualizar(@RequestBody DadosAtualizacaoVideo dadosRequisicao){
 		return service.atualizar(dadosRequisicao);
 	}
