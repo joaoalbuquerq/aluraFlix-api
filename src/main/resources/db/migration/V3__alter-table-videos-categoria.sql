@@ -1,0 +1,1 @@
+alter table videos add categoria_id bigint;
