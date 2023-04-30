@@ -4,6 +4,7 @@ import com.aluraflixapi.domain.Categoria;
 import com.aluraflixapi.dto.video.DadosAtualizacaoVideo;
 import com.aluraflixapi.dto.video.DadosDetalhamentoVideo;
 import com.aluraflixapi.dto.video.DadosListagemVideo;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -53,4 +54,14 @@ public class VideoService {
 		return ResponseEntity.ok(new DadosDetalhamentoVideo(video));
 	}
 
+	public ResponseEntity<DadosDetalhamentoVideo> pesquisarVideoPorNome(String nome) {
+
+		var video = repository.findByTitulo(nome);
+
+		if(video == null){
+			throw new EntityNotFoundException();
+		}
+
+		return ResponseEntity.ok(new DadosDetalhamentoVideo(video));
+	}
 }

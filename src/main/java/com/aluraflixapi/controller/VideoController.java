@@ -1,6 +1,7 @@
 package com.aluraflixapi.controller;
 
 import com.aluraflixapi.dto.video.DadosAtualizacaoVideo;
+import com.aluraflixapi.dto.video.DadosDetalhamentoVideo;
 import com.aluraflixapi.dto.video.DadosListagemVideo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -50,6 +51,11 @@ public class VideoController {
 	@Transactional
 	public ResponseEntity atualizar(@RequestBody DadosAtualizacaoVideo dadosRequisicao){
 		return service.atualizar(dadosRequisicao);
+	}
+
+	@GetMapping(params = "nome")
+	public ResponseEntity<DadosDetalhamentoVideo> pesquisarVideoPorNome(@RequestParam String nome){
+		return service.pesquisarVideoPorNome(nome);
 	}
 
 }

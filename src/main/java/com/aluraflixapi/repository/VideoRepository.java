@@ -17,4 +17,6 @@ public interface VideoRepository extends JpaRepository<Video, Long>{
             where v.categoria.id = :id
             """)
     List<Video> pesquisarVideosPorCategoria(Long id);
+
+    Video findByTitulo(String nome);
 }
