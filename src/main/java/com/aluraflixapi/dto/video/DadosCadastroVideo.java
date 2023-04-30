@@ -10,7 +10,9 @@ public record DadosCadastroVideo(
 		String descricao,
 		
 		@NotBlank
-		String url
+		String url,
+
+		Long categoriaId
 ) {
 	
 }

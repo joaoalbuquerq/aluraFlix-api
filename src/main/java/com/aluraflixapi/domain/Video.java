@@ -22,11 +22,16 @@ public class Video {
 	private String descricao;
 	
 	private String url;
+
+	@ManyToOne
+	@JoinColumn(name = "categoria_id")
+	private Categoria categoria;
 	
-	public Video(DadosCadastroVideo dados) {
+	public Video(DadosCadastroVideo dados, Categoria categoria) {
 		this.titulo = dados.titulo();
 		this.descricao = dados.descricao();
 		this.url = dados.url();
+		this.categoria = categoria;
 	}
 
 	public void atualizarDados(DadosAtualizacaoVideo dados){
@@ -62,5 +67,13 @@ public class Video {
 	}
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public Categoria getCategoria(){
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria){
+		this.categoria = categoria;
 	}
 }

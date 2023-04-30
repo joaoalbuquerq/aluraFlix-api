@@ -1,5 +1,6 @@
 package com.aluraflixapi.service;
 
+import com.aluraflixapi.domain.Categoria;
 import com.aluraflixapi.dto.video.DadosAtualizacaoVideo;
 import com.aluraflixapi.dto.video.DadosDetalhamentoVideo;
 import com.aluraflixapi.dto.video.DadosListagemVideo;
@@ -18,9 +19,13 @@ public class VideoService {
 
 	@Autowired
 	private VideoRepository repository;
+
+	@Autowired
+	private CategoriaService categoriaService;
 	
 	public DadosDetalhamentoVideo cadastrar(DadosCadastroVideo dados) {
-		var video = new Video(dados);
+		var categoria = categoriaService.selecionarCategoria(dados);
+		var video = new Video(dados,categoria);
 		repository.save(video);
 		return new DadosDetalhamentoVideo(video);
 	}
